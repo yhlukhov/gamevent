@@ -1,8 +1,12 @@
 import styled from "styled-components"
+import { GamInfo, EventCarousel } from "../components"
 
 export default function Home() {
   return (
-    <HomeDiv>Home Page</HomeDiv>
+    <HomeDiv>
+      <GamInfo />
+      <EventCarousel />
+    </HomeDiv>
   )
 }
 
