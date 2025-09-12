@@ -1,0 +1,72 @@
+import { Link } from "react-router"
+import { useEffect, useState } from "react"
+import { EffectCoverflow } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { shortDateTime } from '../lib'
+import { getAllEvents } from "../api"
+import type { Event } from "../types"
+import 'swiper/css/effect-coverflow'
+import 'swiper/css'
+import styled from "styled-components"
+
+export default function EventCarousel() {
+  const [events, setEvents] = useState<Event[]>([])
+  
+  useEffect(() => {
+    getAllEvents().then(data => setEvents(data))
+  }, [])
+
+  return (
+    <Swiper
+      effect={'coverflow'}
+      slidesPerView={'auto'}
+      grabCursor={true}
+      centeredSlides={true}
+      coverflowEffect={{
+        rotate: 40,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true
+      }}
+      modules={[EffectCoverflow]}
+      className='my-swiper'
+    >
+      {events.map((event) => (
+        <Slide key={event.id}>
+          <Link to={`/event/${event.id}`}>
+            <h2>{event.title}</h2>
+            <h4>{event.organizer}</h4>
+            <h4>{shortDateTime(event.datetime)}</h4>
+            <div className='description'>{event.description}</div>
+          </Link>
+        </Slide>
+      ))}
+    </Swiper>
+  )
+}
+
+const Slide = styled(SwiperSlide)`
+  width: 300px;
+  height: 300px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f0efef;
+  border: 3px solid #e8e8e8;
+  transition-duration: 200ms;
+  cursor: pointer;
+  &:hover {
+    border-color: #d2b37a;
+  }
+
+  & .description {
+    margin-top: 10px;
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: #2e2e2e;
+    max-height: 160px;
+    overflow: hidden;
+  }
+`
