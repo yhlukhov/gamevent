@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
-import { Home, Events } from './pages'
+import { Home, Events, EventDetails } from './pages'
 import { Layout } from './components'
 import App from './App'
 import './index.css'
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
             path: '/events',
             Component: Events,
           },
+          {
+            path: '/event/:id',
+            Component: EventDetails
+          },
         ],
       },
     ],
@@ -32,5 +36,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </StrictMode>
 )

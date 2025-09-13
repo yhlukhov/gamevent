@@ -31,6 +31,8 @@ async function getEvent(id:string) {
   if (docSnap.exists()) {
     const data = docSnap.data() as FSEvent
     return {...data, id, datetime: data.datetime.toDate()} as Event
+  } else {
+    return null
   }
 }
 

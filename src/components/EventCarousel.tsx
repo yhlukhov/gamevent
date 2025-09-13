@@ -1,19 +1,20 @@
-import { Link } from "react-router"
-import { useEffect, useState } from "react"
-import { EffectCoverflow } from "swiper/modules"
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Link } from 'react-router'
+import styled from 'styled-components'
+import { useEffect, useState } from 'react'
+import { EffectCoverflow } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { shortDateTime } from '../lib'
-import { getAllEvents } from "../api"
-import type { Event } from "../types"
+import { getAllEvents } from '../api'
+import type { Event } from '../types'
+//@ts-ignore
 import 'swiper/css/effect-coverflow'
-import 'swiper/css'
-import styled from "styled-components"
+import 'swiper/swiper.css'
 
 export default function EventCarousel() {
   const [events, setEvents] = useState<Event[]>([])
-  
+
   useEffect(() => {
-    getAllEvents().then(data => setEvents(data))
+    getAllEvents().then((data) => setEvents(data))
   }, [])
 
   return (
@@ -27,7 +28,7 @@ export default function EventCarousel() {
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows: true
+        slideShadows: true,
       }}
       modules={[EffectCoverflow]}
       className='my-swiper'
@@ -47,8 +48,8 @@ export default function EventCarousel() {
 }
 
 const Slide = styled(SwiperSlide)`
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  max-height: 280px;
   padding: 12px 16px;
   border-radius: 16px;
   background-size: cover;
