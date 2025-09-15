@@ -32,8 +32,7 @@ export default function EventItem({ event }: { event: Event }) {
 }
 
 const Li = styled.li`
-  min-width: 320px;
-  max-width: 360px;
+  width: 360px;
   border-radius: 16px;
   padding: 12px 16px;
   background-color: #f0efef;
