@@ -1,5 +1,5 @@
-import { Link } from 'react-router'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import { EffectCoverflow } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -12,6 +12,7 @@ import 'swiper/swiper.css'
 
 export default function EventCarousel() {
   const [events, setEvents] = useState<Event[]>([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     getAllEvents().then((data) => setEvents(data))
@@ -31,16 +32,14 @@ export default function EventCarousel() {
         slideShadows: true,
       }}
       modules={[EffectCoverflow]}
-      className='my-swiper'
+      className='swiper-class'
     >
       {events.map((event) => (
-        <Slide key={event.id}>
-          <Link to={`/event/${event.id}`}>
-            <h2>{event.title}</h2>
-            <h4>{event.organizer}</h4>
-            <h4>{shortDateTime(event.datetime)}</h4>
-            <div className='description'>{event.description}</div>
-          </Link>
+        <Slide key={event.id} onClick={() => navigate(`/event/${event.id}`)}>
+          <h2>{event.title}</h2>
+          <h4>{event.organizer}</h4>
+          <h4>{shortDateTime(event.datetime)}</h4>
+          <div className='description'>{event.description}</div>
         </Slide>
       ))}
     </Swiper>
@@ -49,7 +48,7 @@ export default function EventCarousel() {
 
 const Slide = styled(SwiperSlide)`
   width: 270px;
-  max-height: 280px;
+  height: 280px;
   padding: 12px 16px;
   border-radius: 16px;
   background-size: cover;
