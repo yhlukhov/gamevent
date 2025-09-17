@@ -38,6 +38,6 @@ align-items: center;
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 25px 20px;
   }
 `

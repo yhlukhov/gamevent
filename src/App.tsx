@@ -1,5 +1,5 @@
 import { Outlet } from "react-router"
-import { Footer, Header } from "./components"
+import { Footer, Header, Lang } from "./components"
 
 export default function App() {
   return (
@@ -7,6 +7,7 @@ export default function App() {
       <Header />
       <Outlet />
       <Footer />
+      <Lang />
     </>
   )
 }
