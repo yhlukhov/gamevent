@@ -11,5 +11,6 @@ export default function Home() {
 }
 
 const HomeDiv = styled.div`
-  
+  width: 100%;
+  margin-bottom: 60px;
 `

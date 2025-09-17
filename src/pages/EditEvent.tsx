@@ -113,7 +113,7 @@ export default function EditEvent() {
             <div className='controls'>
               <button type='button' onClick={()=>navigate(-1)}>Cancel</button>
               <button type='submit' disabled={isSubmitting}>
-                Edit event
+                Save changes
               </button>
             </div>
           </FormikForm>

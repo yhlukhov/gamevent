@@ -33,7 +33,7 @@ const StyledHeader = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     border-bottom: 3px solid #dddddd;
     & a {
       color: #5b410f;

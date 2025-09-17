@@ -39,6 +39,7 @@ export default function GamInfo() {
 
 const Article = styled.article`
   width: 100%;
+  margin: 0 auto;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -50,12 +51,10 @@ const Article = styled.article`
     width: 100%;
     border-bottom: 1px solid #f2f2f2;
   }
-  & .swiper-slide {
-    width: calc(100% - 20px) !important;
-  }
 `
 
 const Slide = styled(SwiperSlide)`
+  width: calc(100% - 20px) !important;
   height: fit-content;
   padding: 10px;
   text-align: center;

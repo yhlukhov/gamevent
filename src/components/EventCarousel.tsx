@@ -19,7 +19,7 @@ export default function EventCarousel() {
   }, [])
 
   return (
-    <Swiper
+    <Carousel
       effect={'coverflow'}
       slidesPerView={'auto'}
       grabCursor={true}
@@ -32,7 +32,6 @@ export default function EventCarousel() {
         slideShadows: true,
       }}
       modules={[EffectCoverflow]}
-      className='swiper-class'
     >
       {events.map((event) => (
         <Slide key={event.id} onClick={() => navigate(`/event/${event.id}`)}>
@@ -42,9 +41,13 @@ export default function EventCarousel() {
           <div className='description'>{event.description}</div>
         </Slide>
       ))}
-    </Swiper>
+    </Carousel>
   )
 }
+
+const Carousel = styled(Swiper)`
+  width: 100%;
+`
 
 const Slide = styled(SwiperSlide)`
   width: 270px;
