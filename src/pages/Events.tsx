@@ -12,21 +12,32 @@ export default function Events() {
   }, [])
 
   return (
-    <>
-      <EventsList>
+    <EventList>
+      <img className='logo' src='/gm-events.png' alt='' />
+      <ul>
         {events.map((event) => (
           <EventItem key={event.id} event={event} />
         ))}
-      </EventsList>
-    </>
+      </ul>
+    </EventList>
   )
 }
 
-const EventsList = styled.ul`
-  margin: 10px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 10px;
+const EventList = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+& img {
+  width: 115px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+}
+  & ul {
+    margin: 10px 20px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 `

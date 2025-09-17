@@ -45,7 +45,7 @@ const Article = styled.article`
   flex-direction: column;
   align-items: center;
   & .logo {
-    width: 70px;
+    width: 75px;
   }
   & .swiper {
     width: 100%;

@@ -40,6 +40,9 @@ const Li = styled.li`
   transition-duration: 200ms;
   cursor: pointer;
   position: relative;
+  @media (max-width: 425px) {
+    width: 320px;
+  }
   &:hover {
     border-color: #d2b37a;
   }
