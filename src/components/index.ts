@@ -5,7 +5,6 @@ import EventCarousel from './EventCarousel'
 import EventItem from './EventItem'
 import QuillEditor from './QuillEditor'
 import Footer from './Footer'
-import Lang from './Lang'
 
 export {
   Layout,
@@ -14,6 +13,5 @@ export {
   EventCarousel,
   EventItem,
   QuillEditor,
-  Footer,
-  Lang
+  Footer
 }

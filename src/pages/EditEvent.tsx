@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { Formik, Form, Field } from 'formik'
 import { useEffect, useState } from 'react'
+import { Formik, Form, Field } from 'formik'
+import { useTranslation } from 'react-i18next'
 import { useNavigate, useParams } from 'react-router'
 import { getEvent, editEvent, deleteEvent } from '../api/events'
 import { dateToLocaleStr, getCookie } from '../lib'
@@ -9,7 +10,8 @@ import delSVG from '../assets/delete.svg'
 import type { Event } from '../types'
 
 export default function EditEvent() {
-  const {id} = useParams()
+  const { id } = useParams()
+  const {t} = useTranslation()
   const navigate = useNavigate()
   const [event, setEvent] = useState<Event|null>(null)
   const [details, setDetails] = useState('')
@@ -31,7 +33,7 @@ export default function EditEvent() {
   }, [])
 
   const onDelete = async () => {
-    if (event && confirm(`Are you sure you want delete event: ${event.title}`)) {
+    if (event && confirm(`${t('confirm.delete')}: ${event.title}`)) {
       await deleteEvent(event.id)
       navigate('/events')
     }
@@ -39,7 +41,7 @@ export default function EditEvent() {
 
   return event ? (
     <>
-      <h1>Edit event:</h1>
+      <h1>{t('new.titleEdit')}:</h1>
       <h3>{event.title}</h3>
       <Formik
         initialValues={{ ...event, datetime: dateToLocaleStr(event.datetime) }}
@@ -62,7 +64,6 @@ export default function EditEvent() {
             },
             id
           )
-          alert('Event has been successfully edited!')
           navigate(`/event/${id}`)
         }}
       >
@@ -70,14 +71,14 @@ export default function EditEvent() {
           <FormikForm onSubmit={handleSubmit}>
             <Field
               name='title'
-              placeholder='Event title'
+              placeholder={t('new.placeholderTitle')}
               className='input-box title'
               required
             />
 
             <Field
               name='organizer'
-              placeholder='Organizer'
+              placeholder={t('new.placeholderOrganizer')}
               className='input-box organizer'
               required
             />
@@ -94,7 +95,7 @@ export default function EditEvent() {
               as='textarea'
               name='description'
               className='input-box description'
-              placeholder='Short description'
+              placeholder={t('new.placeholderDescription')}
               maxLength={180}
               required
             />
@@ -102,18 +103,18 @@ export default function EditEvent() {
             <QuillEditor
               text={details}
               setText={setDetails}
-              placeholder='Event details, including Zoom link, or other instruction to join'
+              placeholder={t('new.placeholderDetails')}
             />
 
             <div className='elevendays'>
               <Field type='checkbox' name='elevendays' />
-              <label>Only for 11-days participants?</label>
+              <label>{t('new.checkBox')}?</label>
             </div>
 
             <div className='controls'>
-              <button type='button' onClick={()=>navigate(-1)}>Cancel</button>
+              <button type='button' onClick={()=>navigate(-1)}>{t('new.btnCancel')}</button>
               <button type='submit' disabled={isSubmitting}>
-                Save changes
+                {t('new.btnEdit')}
               </button>
             </div>
           </FormikForm>

@@ -6,6 +6,7 @@ import { Home, Events, EventDetails, AddEvent, EditEvent, Admin } from './pages'
 import { Layout } from './components'
 import App from './App'
 import './index.css'
+import './i18n'
 
 const router = createBrowserRouter([
   {

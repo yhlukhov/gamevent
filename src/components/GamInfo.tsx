@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react'
-import { Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from "swiper/react"
-import { getInfo } from '../api'
-import type { Info } from '../types'
 import styled from 'styled-components'
+import { Autoplay } from 'swiper/modules'
+import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from "swiper/react"
+import { useTranslation } from 'react-i18next'
+import type { Info } from '../types'
+import { getInfo } from '../api'
 
 export default function GamInfo() {
   const [info, setInfo] = useState<Info[]>([])
+  const { i18n } = useTranslation()
 
   useEffect(() => {
-    getInfo().then(setInfo)
+    console.log(i18n.language.split('-')[0])
+    getInfo(i18n.language.split('-')[0]).then(setInfo)
   }, [])
   
   return (

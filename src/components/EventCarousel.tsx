@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
 import { EffectCoverflow } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { shortDateTime } from '../lib'
+import { displayDateTime } from '../lib'
 import { getAllEvents } from '../api'
 import type { Event } from '../types'
 //@ts-ignore
@@ -37,7 +37,7 @@ export default function EventCarousel() {
         <Slide key={event.id} onClick={() => navigate(`/event/${event.id}`)}>
           <h2>{event.title}</h2>
           <h4>{event.organizer}</h4>
-          <h4>{shortDateTime(event.datetime)}</h4>
+          <h4>{displayDateTime(event.datetime)}</h4>
           <div className='description'>{event.description}</div>
         </Slide>
       ))}
