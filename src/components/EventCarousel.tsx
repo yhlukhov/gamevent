@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import { EffectCoverflow } from 'swiper/modules'
+import { EffectCoverflow, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { displayDateTime } from '../lib'
 import { getAllEvents } from '../api'
@@ -23,6 +23,12 @@ export default function EventCarousel() {
       effect={'coverflow'}
       slidesPerView={'auto'}
       grabCursor={true}
+      autoplay={{
+        delay: 8000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true,
+        stopOnLastSlide: false,
+      }}
       centeredSlides={true}
       coverflowEffect={{
         rotate: 40,
@@ -31,7 +37,7 @@ export default function EventCarousel() {
         modifier: 1,
         slideShadows: true,
       }}
-      modules={[EffectCoverflow]}
+      modules={[EffectCoverflow, Autoplay]}
     >
       {events.map((event) => (
         <Slide key={event.id} onClick={() => navigate(`/event/${event.id}`)}>

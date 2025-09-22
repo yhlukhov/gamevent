@@ -24,6 +24,8 @@ export default function GamInfo() {
         autoplay={{
           delay: 30000,
           disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+          stopOnLastSlide: false
         }}
         autoHeight={true}
         modules={[Autoplay]}

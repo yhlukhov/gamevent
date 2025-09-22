@@ -43,6 +43,9 @@ const Li = styled.li`
   @media (max-width: 425px) {
     width: 320px;
   }
+  @media (max-width: 390px) {
+    width: 300px;
+  }
   &:hover {
     border-color: #d2b37a;
   }
