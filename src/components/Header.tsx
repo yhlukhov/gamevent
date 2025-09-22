@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router'
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getCookie } from '../lib/cookieManager'
 
 export default function Header() {
   const [admin, setAdmin] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (!admin) {
@@ -17,9 +19,9 @@ export default function Header() {
   return (
     <StyledHeader>
       <nav>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/events'>Events</NavLink>
-        {admin && <NavLink to='/new'>New</NavLink>}
+        <NavLink to='/'>{t('nav.home')}</NavLink>
+        <NavLink to='/events'>{t('nav.events')}</NavLink>
+        {admin && <NavLink to='/new'>{t('nav.new')}</NavLink>}
       </nav>
     </StyledHeader>
   )

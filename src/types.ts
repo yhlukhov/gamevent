@@ -32,6 +32,8 @@ type FSEvent = {
 type Info = {
   title: string
   details: string
+  lang: string
+  position: number
 }
 
 export type {Event, NewEvent, FSEvent, Info}

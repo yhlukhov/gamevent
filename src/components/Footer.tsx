@@ -30,7 +30,7 @@ const StyledFooter = styled.footer`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
     & a {
       color: #5b410f;
       text-decoration: underline;

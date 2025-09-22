@@ -3,13 +3,23 @@ import { useEffect, useState } from 'react'
 import { EventItem } from '../components'
 import { getAllEvents } from '../api'
 import type { Event } from '../types'
+import { getCookie } from '../lib'
 
 export default function Events() {
+  const [admin, setAdmin] = useState(false)
   const [events, setEvents] = useState<Event[]>([])
 
   useEffect(() => {
-    getAllEvents().then(setEvents)
-  }, [])
+    if (!admin) {
+      if (getCookie('admin')) {
+        setAdmin(true)
+      }
+    }
+  })
+
+  useEffect(() => {
+    getAllEvents(admin).then(setEvents)
+  }, [admin])
 
   return (
     <EventList>
@@ -38,6 +48,6 @@ align-items: center;
     justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 25px 20px;
   }
 `

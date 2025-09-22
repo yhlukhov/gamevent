@@ -1,10 +1,11 @@
-import { Formik, Form, Field } from 'formik'
-import { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
+import { Formik, Form, Field } from 'formik'
+import {useTranslation} from 'react-i18next'
+import { dateToLocaleStr, getCookie } from '../lib'
 import { QuillEditor } from '../components'
 import { addNewEvent } from '../api/events'
-import { dateToLocaleStr, getCookie } from '../lib'
-import styled from 'styled-components'
 
 const initialValues = {
   title: '',
@@ -15,6 +16,7 @@ const initialValues = {
 }
 
 export default function AddEvent() {
+  const {t} = useTranslation()
   const navigate = useNavigate()
   const [details, setDetails] = useState('')
 
@@ -26,7 +28,7 @@ export default function AddEvent() {
 
   return (
     <>
-      <h1>Add new event</h1>
+      <h1>{t('new.title')}</h1>
       <Formik
         initialValues={initialValues}
         onSubmit={async (values, { setSubmitting, resetForm }) => {
@@ -37,21 +39,21 @@ export default function AddEvent() {
           })
           setSubmitting(false)
           resetForm()
-          alert('New event has been added successfully!')
+          alert(t('new.successMsg'))
         }}
       >
         {({ handleSubmit, isSubmitting }) => (
           <FormikForm onSubmit={handleSubmit}>
             <Field
               name='title'
-              placeholder='Event title'
+              placeholder={t('new.placeholderTitle')}
               className='input-box title'
               required
             />
 
             <Field
               name='organizer'
-              placeholder='Organizer'
+              placeholder={t('new.placeholderOrganizer')}
               className='input-box organizer'
               required
             />
@@ -68,7 +70,7 @@ export default function AddEvent() {
               as='textarea'
               name='description'
               className='input-box description'
-              placeholder='Short description'
+              placeholder={t('new.placeholderDescription')}
               maxLength={180}
               required
             />
@@ -76,20 +78,20 @@ export default function AddEvent() {
             <QuillEditor
               text={details}
               setText={setDetails}
-              placeholder='Event details, including Zoom link, or other instruction to join'
+              placeholder={t('new.placeholderDetails')}
             />
 
             <div className='elevendays'>
               <Field type='checkbox' name='elevendays' />
-              <label>Only for 11-days participants?</label>
+              <label>{t('new.checkBox')}?</label>
             </div>
 
             <div className='controls'>
               <button type='button' onClick={() => navigate(-1)}>
-                Cancel
+                {t('new.btnCancel')}
               </button>
               <button type='submit' disabled={isSubmitting}>
-                Add event
+                {t('new.btnAdd')}
               </button>
             </div>
           </FormikForm>

@@ -13,5 +13,5 @@ export {
   EventCarousel,
   EventItem,
   QuillEditor,
-  Footer,
+  Footer
 }

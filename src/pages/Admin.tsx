@@ -1,12 +1,14 @@
-import styled from "styled-components"
-import {useNavigate} from 'react-router'
-import { useState, useEffect } from "react"
-import { Formik, Form, Field } from "formik"
-import {getCookie, setCookie} from '../lib'
+import styled from 'styled-components'
+import { useNavigate } from 'react-router'
+import { useState, useEffect } from 'react'
+import { Formik, Form, Field } from 'formik'
+import { getCookie, setCookie } from '../lib'
+import { useTranslation } from 'react-i18next'
 
 export default function Admin() {
   const [admin, setAdmin] = useState(false)
   const navigate = useNavigate()
+  const { t } = useTranslation()
 
   useEffect(() => {
     if (getCookie('admin')) {
@@ -21,7 +23,7 @@ export default function Admin() {
     </>
   ) : (
     <>
-      <h1>Login as admin:</h1>
+      <h1>{t('admin.title')}:</h1>
       <Formik
         initialValues={{ password: '' }}
         onSubmit={({ password }) => {
@@ -38,9 +40,9 @@ export default function Admin() {
             type='password'
             name='password'
             className='input-box'
-            placeholder='Enter password'
+            placeholder={t('admin.placeholder')}
           />
-          <button type='submit'>Submit</button>
+          <button type='submit'>{t('admin.btn')}</button>
         </LoginForm>
       </Formik>
     </>
