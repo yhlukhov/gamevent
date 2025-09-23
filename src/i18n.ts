@@ -19,6 +19,8 @@ i18next
             title: 'Залогуватись як адмін',
             placeholder: 'Ввести пароль',
             btn: 'Залогуватись',
+            success: 'Ви залоговані',
+            reload: 'Перезавантажте сайт для оновлення',
           },
           new: {
             title: 'Додати подію',
@@ -50,6 +52,8 @@ i18next
             title: 'Login as admin',
             placeholder: 'Enter password',
             btn: 'Login',
+            success: 'You are already logged in',
+            reload: 'Reload site for new experiance',
           },
           new: {
             title: 'Add new event',

@@ -38,7 +38,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 & img {
-  width: 115px;
+  width: 117px;
   margin-top: 3px;
   margin-bottom: 10px;
 }

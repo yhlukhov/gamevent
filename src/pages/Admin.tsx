@@ -18,8 +18,8 @@ export default function Admin() {
 
   return admin ? (
     <>
-      <h1>You are already logged in</h1>
-      <h3>Reload site for new experiance</h3>
+      <h1>{t('admin.success')}</h1>
+      <h3>{t('admin.reload')}</h3>
     </>
   ) : (
     <>
@@ -57,6 +57,7 @@ const LoginForm = styled(Form)`
   gap: 10px;
   border-radius: 16px;
   padding: 12px 16px;
+  margin-bottom: 30px;
   background-color: #f0efef;
   border: 3px solid #e8e8e8;
   transition-duration: 200ms;

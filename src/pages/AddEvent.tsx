@@ -11,7 +11,6 @@ const initialValues = {
   title: '',
   organizer: '',
   description: '',
-  elevendays: false,
   datetime: dateToLocaleStr(new Date()),
 }
 
@@ -37,8 +36,9 @@ export default function AddEvent() {
             datetime: new Date(values.datetime),
             details,
           })
-          setSubmitting(false)
           resetForm()
+          setDetails('')
+          setSubmitting(false)
           alert(t('new.successMsg'))
         }}
       >
@@ -81,11 +81,6 @@ export default function AddEvent() {
               placeholder={t('new.placeholderDetails')}
             />
 
-            <div className='elevendays'>
-              <Field type='checkbox' name='elevendays' />
-              <label>{t('new.checkBox')}?</label>
-            </div>
-
             <div className='controls'>
               <button type='button' onClick={() => navigate(-1)}>
                 {t('new.btnCancel')}
@@ -108,6 +103,7 @@ const FormikForm = styled(Form)`
   gap: 10px;
   border-radius: 16px;
   padding: 12px 16px;
+  margin-bottom: 30px;
   background-color: #f0efef;
   border: 3px solid #e8e8e8;
   transition-duration: 200ms;
@@ -172,21 +168,6 @@ const FormikForm = styled(Form)`
     box-shadow: 2px 2px 3px #c1b49e;
     border: 1px solid #cfba93;
     cursor: pointer;
-  }
-
-  & .elevendays {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    & label {
-      padding-top: 2px;
-      font-size: 15px;
-      color: #333333;
-    }
-    & input {
-      width: 15px;
-      transform: scale(1.1);
-    }
   }
 
   & .controls {

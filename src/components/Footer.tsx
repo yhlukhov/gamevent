@@ -11,6 +11,12 @@ export default function Footer() {
         <a href='https://www.youtube.com/@AmmaBhagavan' target='_blank'>
           Golden Age Dharma
         </a>
+        <a
+          href='https://www.youtube.com/@thegreatcompassionatelight8613'
+          target='_blank'
+        >
+          The Great Compassionate Light
+        </a>
       </div>
     </StyledFooter>
   )
@@ -24,13 +30,13 @@ const StyledFooter = styled.footer`
   gap: 30px;
   border-top: 3px solid #dddddd;
   & img {
-    width: 70px;
+    width: 75px;
   }
   & .links {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 7px;
     & a {
       color: #5b410f;
       text-decoration: underline;

@@ -7,7 +7,6 @@ type Event = {
   details: string
   description: string
   datetime: Date
-  elevendays: boolean
 }
 
 type NewEvent = {
@@ -16,7 +15,6 @@ type NewEvent = {
   details: string
   description: string
   datetime: Date
-  elevendays: boolean
 }
 
 type FSEvent = {
@@ -26,7 +24,6 @@ type FSEvent = {
   details: string
   description: string
   datetime: Timestamp
-  elevendays: boolean
 }
 
 type Info = {

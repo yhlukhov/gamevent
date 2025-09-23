@@ -51,7 +51,6 @@ export default function EditEvent() {
           organizer,
           datetime,
           description,
-          elevendays,
         }) => {
           await editEvent(
             {
@@ -60,7 +59,6 @@ export default function EditEvent() {
               description,
               details,
               datetime: new Date(datetime),
-              elevendays,
             },
             id
           )
@@ -105,11 +103,6 @@ export default function EditEvent() {
               setText={setDetails}
               placeholder={t('new.placeholderDetails')}
             />
-
-            <div className='elevendays'>
-              <Field type='checkbox' name='elevendays' />
-              <label>{t('new.checkBox')}?</label>
-            </div>
 
             <div className='controls'>
               <button type='button' onClick={()=>navigate(-1)}>{t('new.btnCancel')}</button>
@@ -198,21 +191,6 @@ const FormikForm = styled(Form)`
     box-shadow: 2px 2px 3px #c1b49e;
     border: 1px solid #cfba93;
     cursor: pointer;
-  }
-
-  & .elevendays {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    & label {
-      padding-top: 2px;
-      font-size: 15px;
-      color: #333333;
-    }
-    & input {
-      width: 15px;
-      transform: scale(1.1);
-    }
   }
 
   & .controls {
