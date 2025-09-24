@@ -11,7 +11,6 @@ export default function GamInfo() {
   const { i18n } = useTranslation()
 
   useEffect(() => {
-    console.log(i18n.language.split('-')[0])
     getInfo(i18n.language.split('-')[0]).then(setInfo)
   }, [])
   
