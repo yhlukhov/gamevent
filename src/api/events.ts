@@ -12,12 +12,13 @@ import {
   where,
 } from 'firebase/firestore'
 import { db } from '../firebase'
+import { delayTime } from '../lib/datetime'
 import type { Event, NewEvent, FSEvent } from '../types'
 
 async function getAllEvents(admin?: boolean) {
   const q = admin
     ? query(collection(db, 'events'), orderBy('datetime'))
-    : query(collection(db, 'events'), where("datetime", ">", new Date()), orderBy('datetime'))
+    : query(collection(db, 'events'), where("datetime", ">", delayTime(2)), orderBy('datetime'))
   const querySnapshot = await getDocs(q)
   const events = [] as Array<Event>
   querySnapshot.forEach((doc) => {

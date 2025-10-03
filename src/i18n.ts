@@ -39,6 +39,9 @@ i18next
           confirm: {
             delete: 'Впевнені що бажаєте видалити подію',
           },
+          videos: {
+            title: 'Рух Золотого Віку Відео',
+          },
         },
       },
       en: {
@@ -71,6 +74,9 @@ i18next
           },
           confirm: {
             delete: 'Are you sure you want to delete event',
+          },
+          videos: {
+            title: 'Golden Age Movement Videos',
           },
         },
       },

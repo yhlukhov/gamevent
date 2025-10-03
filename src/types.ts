@@ -33,4 +33,9 @@ type Info = {
   position: number
 }
 
-export type {Event, NewEvent, FSEvent, Info}
+type Video = {
+  id: string
+  title: string
+}
+
+export type {Event, NewEvent, FSEvent, Info, Video}

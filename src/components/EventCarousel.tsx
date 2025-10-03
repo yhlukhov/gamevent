@@ -24,7 +24,7 @@ export default function EventCarousel() {
       slidesPerView={'auto'}
       grabCursor={true}
       autoplay={{
-        delay: 8000,
+        delay: 10000,
         disableOnInteraction: true,
         pauseOnMouseEnter: true,
         stopOnLastSlide: false,

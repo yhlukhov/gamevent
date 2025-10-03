@@ -33,4 +33,10 @@ function shortDateTime(date: Date) {
   })
 }
 
-export { dateToLocaleStr, displayDateTime, shortDateTime }
+function delayTime(hours: number) {
+  const now = new Date()
+  now.setHours(now.getHours() - hours)
+  return now
+}
+
+export { dateToLocaleStr, displayDateTime, shortDateTime, delayTime }

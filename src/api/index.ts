@@ -1,5 +1,5 @@
 import { getAllEvents, getEvent, addNewEvent, editEvent, deleteEvent } from './events'
-import { getInfo } from './info'
+import { getInfo, getVideos } from './info'
 
 export { getAllEvents, getEvent, addNewEvent, editEvent, deleteEvent }
-export {getInfo}
+export {getInfo, getVideos}
